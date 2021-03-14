@@ -1,0 +1,40 @@
+server:
+  servlet:
+    context-path: /addressbook
+  port: 8080
+
+spring:
+  application:
+    name: Address Book
+
+  h2:
+    console.enabled: true
+  datasource:
+    url: jdbc:h2:file:./data/h2
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+
+
+hibernate:
+  show_sql: true
+  format_sql: true
+  jdbc.fetch_size: 100
+  packages.to.scan: com.jh21.sbcodingpractice.entity
+
+logging:
+  file.path: logs
+
+springdoc:
+  info:
+    title: Address Book
+    version: v1
+  api-docs:
+    groups:
+       enabled: true
+    path: /api-docs
+  swagger-ui:
+    display-request-duration: true
